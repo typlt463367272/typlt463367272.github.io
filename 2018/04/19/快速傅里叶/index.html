@@ -5,19 +5,20 @@
   
 
   
-  <title>10楚梦清歌01——Whales&#39;s blog</title>
+  <title>fft.html | 10楚梦清歌01——Whales&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: fft.htmldate: 2018-04-19tags: math mathjax: true怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上">
+  <meta name="description" content="怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里">
+<meta name="keywords" content="math">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10楚梦清歌01——Whales&#39;s blog">
+<meta property="og:title" content="fft.html">
 <meta property="og:url" content="http://yoursite.com/2018/04/19/快速傅里叶/index.html">
 <meta property="og:site_name" content="10楚梦清歌01——Whales&#39;s blog">
-<meta property="og:description" content="title: fft.htmldate: 2018-04-19tags: math mathjax: true怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上">
+<meta property="og:description" content="怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-19T01:50:30.853Z">
+<meta property="og:updated_time" content="2018-04-19T01:52:24.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="10楚梦清歌01——Whales&#39;s blog">
-<meta name="twitter:description" content="title: fft.htmldate: 2018-04-19tags: math mathjax: true怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上">
+<meta name="twitter:title" content="fft.html">
+<meta name="twitter:description" content="怎么学习傅里叶傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里">
   
     <link rel="alternate" href="/atom.xml" title="10楚梦清歌01——Whales&#39;s blog" type="application/atom+xml">
   
@@ -71,18 +72,26 @@
         <section id="main"><article id="post-快速傅里叶" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/19/快速傅里叶/" class="article-date">
-  <time datetime="2018-04-19T01:05:36.638Z" itemprop="datePublished">2018-04-19</time>
+  <time datetime="2018-04-18T16:00:00.000Z" itemprop="datePublished">2018-04-19</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      fft.html
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: fft.html<br>date: 2018-04-19<br>tags: math</p>
-<h2 id="mathjax-true"><a href="#mathjax-true" class="headerlink" title="mathjax: true"></a>mathjax: true</h2><h2 id="怎么学习傅里叶"><a href="#怎么学习傅里叶" class="headerlink" title="怎么学习傅里叶"></a>怎么学习傅里叶</h2><p>傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念</p>
+        <h2 id="怎么学习傅里叶"><a href="#怎么学习傅里叶" class="headerlink" title="怎么学习傅里叶"></a>怎么学习傅里叶</h2><p>傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念</p>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>什么是傅里叶级数：任何周期函数都可以被展开成<code>$sin$</code>和<code>$cos$</code>构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。</p>
 <p>什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别</p>
 <p>什么是FFT：快速傅里叶变换是一种算法，也可称为DFT的快速实现算法</p>
@@ -106,9 +115,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjg5vdf6q0001vhvs2b2wuk99" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjg5vfh4v0001w3vsqmcxj71b" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
+
     </footer>
   </div>
   
@@ -138,9 +149,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/math/" style="font-size: 10px;">math</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -163,7 +188,7 @@
           </li>
         
           <li>
-            <a href="/2018/04/19/快速傅里叶/">(no title)</a>
+            <a href="/2018/04/19/快速傅里叶/">fft.html</a>
           </li>
         
       </ul>
