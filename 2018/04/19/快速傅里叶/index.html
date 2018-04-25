@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="10楚梦清歌01——Whales&#39;s blog">
 <meta property="og:description" content="傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里叶变换是一种算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-25T04:09:34.952Z">
+<meta property="og:updated_time" content="2018-04-25T04:25:30.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么学习傅里叶">
 <meta name="twitter:description" content="傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里叶变换是一种算">
@@ -98,8 +98,8 @@
 <h2 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h2><p>学习傅里叶变换，依照概念给出的顺序学习，会达到比较好的效果，这是从学习顺序的角度来说。</p>
 <p>从另一个角度来说，傅里叶变换可以被用于音频等数字信号的处理，也可以被用于快速计算多项式乘积。要从哪个角度出发去理解傅里叶变换都是可以的，实际上，它们是一回事（原因：请回看傅里叶级数的概念，根据概念，任何数字信号都可以被视为时域上的函数，自然也就可以被分解为多个三角函数组成的级数，级数也是一种多项式，而多项式系数，就是频域分量）</p>
 <h2 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h2><p>好了，先抛开傅里叶级数，先来说说多项式，需要研究数字信号的同学最后把多项式替换成傅里叶级数即可。</p>
-<p>给定一个<code>$n$</code>阶多项式</p>
-<p>$$<br>A(x)=\sum_{i=0}^{n-1}a_ix^i<br>$$<br>最高次为<code>$n-1$</code>次，根据小学生都懂的“两点确定一条直线（两个坐标点采样可以唯一表示出一个“二阶多项式/一次多项式”）”，显然，我们也可以用n个采样点唯一描绘出这条多项式代表的曲线，这个显然初中生都能懂，因为函数有图像，解析式和点值表示法，这里我们需要的就是这个点值表示法，高端的叫法称为“插♂值”。比如一条音频信号，我们要画出其频谱，有n条谱线，则需要根据傅里叶级数分解出一个<code>$n$</code>阶多项式，那么就需要n个离散点（这就是DFT的命名来源）的采样<code>$(x_0,x_1,\cdots,x_{n-1})$</code>，代入<code>$A(x)$</code>如下：</p>
+<p>给定一个$n$阶多项式</p>
+<p>$$<br>A(x)=\sum_{i=0}^{n-1}a_ix^i<br>$$<br>最高次为$n-1$次，根据小学生都懂的“两点确定一条直线（两个坐标点采样可以唯一表示出一个“二阶多项式/一次多项式”）”，显然，我们也可以用n个采样点唯一描绘出这条多项式代表的曲线，这个显然初中生都能懂，因为函数有图像，解析式和点值表示法，这里我们需要的就是这个点值表示法，高端的叫法称为“插♂值”。比如一条音频信号，我们要画出其频谱，有n条谱线，则需要根据傅里叶级数分解出一个<code>$n$</code>阶多项式，那么就需要n个离散点（这就是DFT的命名来源）的采样$(x_0,x_1,\cdots,x_{n-1})$，代入$A(x)$如下：</p>
 <p>$$<br>    a_0+a_1x_{0}\cdots+a_{n-1}x_{0}^{n-1}</p>
 <pre><code>a_0+a_1x_{1}\cdots+a_{n-1}x_{1}^{n-1}
 
@@ -119,7 +119,7 @@ a_0+a_1x_{n-1}\cdots+a_{n-1}x_{n-1}^{n-1}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjgelfaez0002qsvsiqrou9fx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjgeljgae0002rgvs3wts4ie7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
