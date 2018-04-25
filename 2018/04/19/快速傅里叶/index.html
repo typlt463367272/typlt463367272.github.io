@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
 
   
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="10楚梦清歌01——Whales&#39;s blog">
 <meta property="og:description" content="傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里叶变换是一种算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-19T01:53:57.349Z">
+<meta property="og:updated_time" content="2018-04-25T04:09:34.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么学习傅里叶">
 <meta name="twitter:description" content="傅里叶咋看之下特别难，初学者不知从何开始学习，这里从概念出发，结合自己学习傅里叶变换的顺序，介绍傅里叶变换的相关概念 概念什么是傅里叶级数：任何周期函数都可以被展开成$sin$和$cos$构成的无穷级数，类似于初等函数的泰勒展开。根据欧拉公式，它又有复数形式的表示方法。网上资料一堆，这里不赘述。 什么是DFT：离散傅里叶变换，是一种线性变换，注意和FFT的区别 什么是FFT：快速傅里叶变换是一种算">
@@ -28,11 +28,11 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -99,10 +99,14 @@
 <p>从另一个角度来说，傅里叶变换可以被用于音频等数字信号的处理，也可以被用于快速计算多项式乘积。要从哪个角度出发去理解傅里叶变换都是可以的，实际上，它们是一回事（原因：请回看傅里叶级数的概念，根据概念，任何数字信号都可以被视为时域上的函数，自然也就可以被分解为多个三角函数组成的级数，级数也是一种多项式，而多项式系数，就是频域分量）</p>
 <h2 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h2><p>好了，先抛开傅里叶级数，先来说说多项式，需要研究数字信号的同学最后把多项式替换成傅里叶级数即可。</p>
 <p>给定一个<code>$n$</code>阶多项式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A(x)=\sum_&#123;i=0&#125;^&#123;n-1&#125;a_ix^i</span><br></pre></td></tr></table></figure>
-<p>最高次为<code>$n-1$</code>次，根据小学生都懂的“两点确定一条直线（两个坐标点采样可以唯一表示出一个“二阶多项式/一次多项式”）”，显然，我们也可以用n个采样点唯一描绘出这条多项式代表的曲线，这个显然初中生都能懂，因为函数有图像，解析式和点值表示法，这里我们需要的就是这个点值表示法，高端的叫法称为“插♂值”。比如一条音频信号，我们要画出其频谱，有n条谱线，则需要根据傅里叶级数分解出一个<code>$n$</code>阶多项式，那么就需要n个离散点（这就是DFT的命名来源）的采样<code>$(x_0,x_1,\cdots,x_{n-1})$</code>，代入<code>$A(x)$</code>如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a_0+a_1x_&#123;0&#125;\cdots+a_&#123;n-1&#125;x_&#123;0&#125;^&#123;n-1&#125;</span><br><span class="line"></span><br><span class="line">a_0+a_1x_&#123;1&#125;\cdots+a_&#123;n-1&#125;x_&#123;1&#125;^&#123;n-1&#125;</span><br><span class="line"></span><br><span class="line">\cdots</span><br><span class="line"></span><br><span class="line">a_0+a_1x_&#123;n-1&#125;\cdots+a_&#123;n-1&#125;x_&#123;n-1&#125;^&#123;n-1&#125;</span><br></pre></td></tr></table></figure>
-<p>稍有线性代数常识的人都能看出，这可以写成矩阵乘以向量形式，而事实上，这里的向量，指的就是多项式的另一种记法——向量表示法，用系数向量<code>$[a_0,a_1,\cdots,a_{n-1}]^T$</code>表示多项式。出于国际惯例需要，这里把<code>$x$</code>换成<code>$w$</code>，理论上<code>$x$</code>取何值都可以，但是因为后面FFT算法需要特殊取值，所以先换一下，于是上式可以写成：</p>
+<p>$$<br>A(x)=\sum_{i=0}^{n-1}a_ix^i<br>$$<br>最高次为<code>$n-1$</code>次，根据小学生都懂的“两点确定一条直线（两个坐标点采样可以唯一表示出一个“二阶多项式/一次多项式”）”，显然，我们也可以用n个采样点唯一描绘出这条多项式代表的曲线，这个显然初中生都能懂，因为函数有图像，解析式和点值表示法，这里我们需要的就是这个点值表示法，高端的叫法称为“插♂值”。比如一条音频信号，我们要画出其频谱，有n条谱线，则需要根据傅里叶级数分解出一个<code>$n$</code>阶多项式，那么就需要n个离散点（这就是DFT的命名来源）的采样<code>$(x_0,x_1,\cdots,x_{n-1})$</code>，代入<code>$A(x)$</code>如下：</p>
+<p>$$<br>    a_0+a_1x_{0}\cdots+a_{n-1}x_{0}^{n-1}</p>
+<pre><code>a_0+a_1x_{1}\cdots+a_{n-1}x_{1}^{n-1}
+
+\cdots
+
+a_0+a_1x_{n-1}\cdots+a_{n-1}x_{n-1}^{n-1}
+</code></pre><p>$$<br>稍有线性代数常识的人都能看出，这可以写成矩阵乘以向量形式，而事实上，这里的向量，指的就是多项式的另一种记法——向量表示法，用系数向量<code>$[a_0,a_1,\cdots,a_{n-1}]^T$</code>表示多项式。出于国际惯例需要，这里把<code>$x$</code>换成<code>$w$</code>，理论上<code>$x$</code>取何值都可以，但是因为后面FFT算法需要特殊取值，所以先换一下，于是上式可以写成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">\left(</span><br><span class="line">    \begin&#123;array&#125;&#123;cccc&#125;</span><br><span class="line">        1&amp;w_&#123;0&#125;&amp;\cdots&amp;w_&#123;0&#125;^&#123;n-1&#125; \\</span><br><span class="line">        1&amp;w_&#123;1&#125;&amp;\cdots&amp;w_&#123;1&#125;^&#123;n-1&#125; \\</span><br><span class="line">        \vdots&amp;\vdots&amp;\ddots&amp;\vdots \\</span><br><span class="line">        1&amp;w_&#123;n-1&#125;&amp;\cdots&amp;w_&#123;n-1&#125;^&#123;n-1&#125;</span><br><span class="line">    \end&#123;array&#125;</span><br><span class="line">\right)</span><br><span class="line">\left(</span><br><span class="line">    \begin&#123;array&#125;&#123;c&#125;</span><br><span class="line">        a_0 \\</span><br><span class="line">        a_1 \\</span><br><span class="line">        \vdots \\</span><br><span class="line">        a_&#123;n-1&#125;</span><br><span class="line">    \end&#123;array&#125;</span><br><span class="line">\right)</span><br></pre></td></tr></table></figure>
 <p>其计算结果也是一个向量，而该向量，即多项式的DFT结果。上式矩阵记为范德蒙德矩阵<code>$V$</code>。</p>
 <h2 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h2><p>有了DFT，可以把一个多项式向量形式通过求值转成点值形式，复习一下多项式乘法，初中生的做法当然是直接拆项，然后合并同类项，我们有了竖式求法（不进位乘法），公式求法</p>
@@ -115,7 +119,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjgaeumi40002w3vshqjbjii0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/19/快速傅里叶/" data-id="cjgekz4re0001ozvsmef3v1gq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
@@ -233,6 +237,6 @@
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
